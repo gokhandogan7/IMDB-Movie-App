@@ -10,6 +10,7 @@ flex-direction: column;
 border:1px solid black;
 margin:12px 0px;
 transition: 0.3s;
+border-radius:10px;
 
 &:hover{
     transform:scale(1.1);
@@ -27,6 +28,7 @@ text-align:center
 `
 
 export const StyledMovieImage = styled.img`
+border-radius:10px;
 width:auto;
 height:85%;
 

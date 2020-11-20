@@ -1,23 +1,47 @@
-import React, { useEffect } from "react";
-import { CardList } from "./components/CardList/index";
+import "./App.css"
+import React, { useEffect, useState } from "react";
+import { CardList } from "./components/CardList";
+import { StyledCardList } from "./components/CardList/CardList.style";
+import { SearchBar } from "./components/SearchBox";
 import axios from 'axios';
-import {StyledCardList} from './components/CardList/CardList.style'
 
-
-
-
+const apiKey = "7fc8d00ab1302c6aa7da237d2810116e"; //temporary
+const baseUrl = "https://api.themoviedb.org/3/search/movie";
+const baseImageUrl = "https://image.tmdb.org/t/p/w500";
 
 function App() {
 
+const [movieList, setMovieList] = useState('')
+    const [query, setQuery] = useState('')
+    
+
+useEffect(() => {
+  axios
+  .get(baseUrl, {
+      params: {
+          api_key:apiKey,
+          query:query,
+          page:1
+      }
+  })
+  
+  .then(
+      (res)=>setMovieList(res.data.results)
+  )
+
+  
+}, [query])
 
 
-
-
+  
 
   return (
-    <StyledCardList>
-      <CardList />
-    </StyledCardList>
+    <div className="App">
+      <SearchBar setQuery={setQuery} />
+      <StyledCardList>
+        <CardList baseImageUrl={baseImageUrl} movieList={movieList} />
+      </StyledCardList>
+    </div>
   );
 }
 

@@ -2,12 +2,12 @@ import {StyledCardWrapper, StyledTitle, StyledMovieImage} from './Card.style'
 
 
 
-export const Card = (props)=>{
-    console.log(props)
+export const Card = ({imgUrl, name})=>{
+
     return(
     <StyledCardWrapper>
-        <StyledMovieImage src={props.img} />
-        <StyledTitle>{props.name}</StyledTitle>
+        <StyledMovieImage src={imgUrl} />
+        <StyledTitle>{name}</StyledTitle>
     </StyledCardWrapper>
         )
     
