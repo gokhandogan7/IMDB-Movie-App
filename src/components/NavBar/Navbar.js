@@ -17,7 +17,10 @@ export const Navbar = () => {
   }, []);
 
   const divEl = flag ? (
-    <button onClick={() => auth.signOut()}>Logout</button>
+    <div>
+      <button onClick={() => auth.signOut()}>Logout</button>
+      <button onClick={() => history.push("/favorites")}>Favorites</button>
+    </div>
   ) : (
     <div>
       <button onClick={() => history.push("/signup")}>sign up</button>
