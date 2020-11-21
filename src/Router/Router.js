@@ -5,6 +5,7 @@ import "../App.css";
 import {SignUp} from '../components/SignUp/SignUp'
 import {Login} from '../components/Login/Login'
 
+
 const Router = () => {
   return (
     <div className="router">

@@ -23,13 +23,15 @@ export const StyledTitle = styled.p`
 color:red;
 font-size:12px;
 font-weight:bold;
-text-align:center
+text-align:center;
+margin:0;
+padding:0;
 
 `
 
 export const StyledMovieImage = styled.img`
 border-radius:10px;
 width:auto;
-height:85%;
+height:83%;
 
 `

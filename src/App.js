@@ -1,5 +1,5 @@
 import "./App.css"
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, createContext } from "react";
 import { CardList } from "./components/CardList";
 import { StyledCardList } from "./components/CardList/CardList.style";
 import { SearchBar } from "./components/SearchBox";
@@ -15,6 +15,7 @@ const baseUrl = "https://api.themoviedb.org/3/search/movie";
 const baseImageUrl = "https://image.tmdb.org/t/p/w500";
 
 /* db.collection('favoriteMovies').add({fav:'shutter island'}) */
+
 
 
 function App() {
@@ -45,8 +46,8 @@ useEffect(() => {
 
   return (
     <div className="App">
-      <SearchBar setQuery={setQuery} />
       <Navbar />
+      <SearchBar setQuery={setQuery} />
       <StyledCardList>
         <CardList baseImageUrl={baseImageUrl} movieList={movieList} />
       </StyledCardList>
