@@ -4,7 +4,9 @@ import App from "../App";
 import "../App.css";
 import {SignUp} from '../components/SignUp/SignUp'
 import {Login} from '../components/Login/Login'
-import {favorites} from '../components/favorites/favorites'
+import {Favorites} from '../components/favorites/Favorites'
+import {Example} from '../components/Example/Example'
+import Fragman from '../components/ModalVideo/Fragman'
 
 
 const Router = () => {
@@ -13,8 +15,10 @@ const Router = () => {
       <Switch>
         <Route exact path="/" component={App} /> 
         <Route exact path="/login" component={Login} />
-        <Route exact path="/favorites" component={favorites} />
+        <Route exact path="/fragman" component={Fragman} />
+        <Route exact path="/favorites" component={Favorites} />
         <Route exact path="/signup" component={SignUp} />
+        <Route exact path="/example/:name" component={Example} />
       </Switch>
     </div>
   );

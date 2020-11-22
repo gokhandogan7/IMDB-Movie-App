@@ -1,10 +1,12 @@
 import { StyledCardWrapper, StyledTitle, StyledMovieImage } from "./Card.style";
-import React, {useState, useEffect} from 'react'
-import {db,auth} from "../../firebase/fbconfig"
+import React, { useState, useEffect } from "react";
+import { db, auth } from "../../firebase/fbconfig";
+
+const favArray = [];
 
 export const Card = ({ imgUrl, name }) => {
-     const [flag, setFlag] = useState(false);
-    useEffect(() => {
+  const [flag, setFlag] = useState(false);
+  useEffect(() => {
     auth.onAuthStateChanged((user) => {
       if (user) {
         setFlag(true);
@@ -14,26 +16,37 @@ export const Card = ({ imgUrl, name }) => {
     });
   }, []);
 
-/* db.collection('favoriteMovies').add({fav:'shutter island'}) */
+  /* db.collection('favoriteMovies').add({fav:'shutter island'}) */
 
-    const fav = {
-        title:name,
-        path:imgUrl
+  const fav = {
+    title: name,
+    path: imgUrl,
+  };
+
+  const addFirestore = () => {
+    if (favArray.indexOf(name) == -1) {
+      favArray.push(name);
+      console.log(favArray);
+      db.collection("favoriteMovies").add(fav);
     }
-
-
-const addFirestore=()=>{
-    db.collection('favoriteMovies').add(fav)
-}
-
-
+  };
 
   return (
     <StyledCardWrapper>
-    <StyledMovieImage src={imgUrl} />
+      <StyledMovieImage src={imgUrl} />
 
-    <button style={{margin:0, display:flag?'block':'none' }} onClick={addFirestore}>Add to Fav</button>
-    <StyledTitle>{name}</StyledTitle>
+      <button
+        style={{ margin: 0, display: flag ? "block" : "none" }}
+        onClick={addFirestore}
+      >
+        Add to Fav
+      </button>
+      <button
+        style={{ margin: 0, display: flag ? "block" : "none" }}
+      >
+        Details
+      </button>
+      <StyledTitle>{name}</StyledTitle>
     </StyledCardWrapper>
   );
 };

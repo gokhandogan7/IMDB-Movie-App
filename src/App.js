@@ -21,6 +21,7 @@ const baseImageUrl = "https://image.tmdb.org/t/p/w500";
 function App() {
 
 const [movieList, setMovieList] = useState('')
+console.log(movieList)
     const [query, setQuery] = useState('a')
     
 
