@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { auth } from "../../firebase/fbconfig";
 import { Link, useHistory } from "react-router-dom";
+import Modal from 'react-modal';
 
 export const Login = () => {
   const history = useHistory();

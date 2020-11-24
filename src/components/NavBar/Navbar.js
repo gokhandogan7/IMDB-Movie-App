@@ -20,7 +20,6 @@ export const Navbar = () => {
     <div>
       <button onClick={() => auth.signOut()}>Logout</button>
       <button onClick={() => history.push("/favorites")}>Favorites</button>
-      <Link to='/example/gokhan'>Example </Link>
     </div>
   ) : (
     <div>
